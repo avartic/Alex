@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-07-27T13:44:14.203Z",
+        "before": [
+          {
+            "result": {
+              "duration": 36002400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ui.test.util.Hooks.getScenarioNameAndFeatureName(io.cucumber.java.Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 6374380500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ui.test.util.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "test",
+        "description": "",
+        "id": "test-feature;test",
+        "after": [
+          {
+            "result": {
+              "duration": 1160131400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ui.test.util.Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2269226000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is on \u0027Home Page\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\u0027Home Page\u0027",
+                  "offset": 11
+                }
+              ],
+              "location": "ui.test.stepDefs.HomePageTests.userIsOnHomePage(java.lang.String)"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Run"
+          }
+        ]
+      }
+    ],
+    "name": "test feature",
+    "description": "",
+    "id": "test-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/HomePage.feature",
+    "tags": []
+  }
+]

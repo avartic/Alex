@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
         plugin = {"pretty",
                 "html:target/cucumber-report/cucumber.html",
                 "json:target/cucumber-report/cucumber.json",
-                "ui.util.CustomTestListener"},
-//        glue = {"ui.stepDefs"},
+                "ui.test.util.CustomTestListener"},
+        glue = {"ui.test"},
         features = "src/test/resources/features",
         tags = "@Run")
 public class CucumberRunner {

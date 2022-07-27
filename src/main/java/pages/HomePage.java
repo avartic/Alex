@@ -1,11 +1,10 @@
-package ui.pages;
+package pages;
 
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ui.util.BasePage;
-import ui.util.ConfigProvider;
+import config.ConfigProvider;
 
 
 public class HomePage extends BasePage {

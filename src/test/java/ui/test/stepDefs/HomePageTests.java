@@ -1,18 +1,17 @@
-package ui.stepDefs;
+package ui.test.stepDefs;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
-import org.springframework.beans.factory.annotation.Autowired;
-import ui.pages.HomePage;
-import ui.util.BasePage;
+import pages.HomePage;
 //import ui.util.ScenarioContext;
-import ui.util.ScreenShotUtils;
-import ui.util.StorageKey;
+import ui.test.util.BaseTest;
+import ui.test.util.ScreenShotUtils;
+import ui.test.util.StorageKey;
 
 import java.io.IOException;
 
-public class HomePageTests extends BasePage {
+public class HomePageTests extends BaseTest {
 
 
     @Given("user is on {string}")
@@ -20,7 +19,7 @@ public class HomePageTests extends BasePage {
         HomePage homePage = new HomePage();
         switch (pageName) {
             case "Home Page":
-//                scenarioContext.addToStorage(StorageKey.WEB_PAGE,pageName);
+                getScenarioContext().addToStorage(StorageKey.WEB_PAGE,pageName);
                 ScreenShotUtils.highlightAndTakeScreenshot(homePage.getMyAccount());
                 homePage.getMyAccount().click();
 //                scenarioContext.getFromStorage(StorageKey.WEB_PAGE);

@@ -1,4 +1,4 @@
-package ui.util;
+package ui.test.util;
 
 public enum StorageKey {
     URL,

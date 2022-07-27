@@ -1,18 +1,19 @@
-package ui.util;
+package ui.test.util;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import pages.BasePage;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static ui.util.BaseTest.featureFileName;
-import static ui.util.BaseTest.scenarioName;
+import static ui.test.util.Hooks.featureFileName;
+import static ui.test.util.Hooks.scenarioName;
 
 
 public final class ScreenShotUtils extends BasePage {

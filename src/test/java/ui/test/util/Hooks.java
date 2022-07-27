@@ -1,24 +1,17 @@
-package ui.util;
-
+package ui.test.util;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.GenericApplicationContext;
+import pages.BasePage;
 
 import java.io.File;
 import java.time.Duration;
-//import ui.utils.ScenarioContext;
 
-public class BaseTest {
-
-    @Autowired
-    protected GenericApplicationContext applicationContext;
+public class Hooks extends BaseTest{
 
 
     protected WebDriver driver;
@@ -47,15 +40,4 @@ public class BaseTest {
         scenarioName = scenario.getName();
         featureFileName = new File(scenario.getUri()).getName().replace(".feature", "");
     }
-
-
-
-//    protected ScenarioContext getScenarioContext() {
-//        return applicationContext.getBean(ScenarioContext.class);
-//    }
-//
-//    protected SoftAssertions softAssert() {
-//        return getScenarioContext().getSoftAssertions();
-//    }
-
 }
