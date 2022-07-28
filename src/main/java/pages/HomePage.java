@@ -10,6 +10,10 @@ import config.ConfigProvider;
 public class HomePage extends BasePage {
 
     @Getter
+    @FindBy(xpath = "//img[@title= 'Your Store']")
+    private WebElement logoImage;
+
+    @Getter
     @FindBy(xpath = "//div/a/span[contains(text(),'My Account')]")
     private WebElement myAccount;
 
