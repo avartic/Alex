@@ -1,36 +1,39 @@
 package ui.test.stepDefs;
 
-import io.cucumber.datatable.DataTable;
+import api.dto.UserData;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.LoginPage;
 import ui.test.util.BaseTest;
+import ui.test.util.ScreenShotUtils;
 
-import java.util.Map;
+import java.io.IOException;
 
 public class LoginPageTests extends BaseTest {
 
     @Then("all required elements are present on Login page")
-    public void followingElementsArePresent() {
-        LoginPage registerPage = new LoginPage();
-        Assert.assertTrue(registerPage.getEmailInputLabel().isDisplayed(), "Email Input field is displayed");
-        Assert.assertTrue(registerPage.getPasswordInputLabel().isDisplayed(), "Password Input field is displayed");
-        Assert.assertTrue(registerPage.getSubmitButton().isDisplayed(), "Submit button is displayed");
+    public void followingElementsArePresent() throws IOException {
+        LoginPage loginPage = new LoginPage();
+        Assert.assertTrue(loginPage.getEmailInputLabel().isDisplayed(), "Email Input field is displayed");
+        Assert.assertTrue(loginPage.getPasswordInputLabel().isDisplayed(), "Password Input field is displayed");
+        Assert.assertTrue(loginPage.getSubmitButton().isDisplayed(), "Submit button is displayed");
+        ScreenShotUtils.takePageScreenshot(loginPage.toString());
     }
 
     @When("user populates fields with following data on Login page")
-    public void userPopulatesFieldsWithFollowingDataOnRegisterPage(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-        LoginPage registerPage = new LoginPage();
-        registerPage.getEmailInputLabel().sendKeys(data.get("Email Input"));
-        registerPage.getPasswordInputLabel().sendKeys(data.get("Password Input"));
+    public void userPopulatesFieldsWithFollowingDataOnRegisterPage(UserData userData) throws IOException {
+        LoginPage loginPage = new LoginPage();
+        loginPage.getEmailInputLabel().sendKeys(userData.getEmail());
+        loginPage.getPasswordInputLabel().sendKeys(userData.getPassword());
+        ScreenShotUtils.takePageScreenshot(loginPage.toString());
     }
 
 
     @When("user click on Submit button from Login page")
-    public void userClickOnSubmitButtonFromLoginPage() {
+    public void userClickOnSubmitButtonFromLoginPage() throws IOException {
         LoginPage loginPage = new LoginPage();
+        ScreenShotUtils.highlightAndTakeScreenshot(loginPage.getSubmitButton());
         loginPage.getSubmitButton().click();
     }
 }

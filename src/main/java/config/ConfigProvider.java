@@ -13,6 +13,7 @@ public interface ConfigProvider {
     String userDir = readConfig().getString("user.dir");
     String reportDirectory = readConfig().getString("report.directory");
     String URL = readConfig().getString("url");
+    String REST_URL = readConfig().getString("rest.url");
     String DB_USERNAME = readConfig().getString("users.dbUser.login");
     String DB_PASSWORD = readConfig().getString("users.dbUser.password");
     String UI_USERNAME = readConfig().getString("users.uiUser.login");

@@ -11,7 +11,9 @@ import pages.BasePage;
 import java.io.File;
 import java.time.Duration;
 
-public class Hooks extends BaseTest{
+import static ui.test.util.StorageKey.DRIVER;
+
+public class Hooks extends BaseTest {
 
 
     protected WebDriver driver;
@@ -26,7 +28,7 @@ public class Hooks extends BaseTest{
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         BasePage.setDriver(driver);
-
+        scenarioContext.addToStorage(DRIVER, driver);
     }
 
     @After

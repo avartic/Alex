@@ -1,6 +1,7 @@
 package ui.test.util;
 
 public enum StorageKey {
-    URL,
-    WEB_PAGE
+    DRIVER,
+    WEB_PAGE,
+    USER
 }
