@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(value = "ui")
+@ComponentScan(value = {"ui", "db"})
 public class SpringConfig {
 
     @Bean
