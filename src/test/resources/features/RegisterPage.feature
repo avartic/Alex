@@ -8,3 +8,4 @@ Feature: Validate Register page
       | testAvartic | testAvartic | testAvartic@test.test | Password1 | false        |
     And user click on Submit button from Register page
     Then user is redirected to 'Register Page'
+    And user is saved in DB
