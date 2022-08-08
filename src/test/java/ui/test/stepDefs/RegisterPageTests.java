@@ -3,9 +3,12 @@ package ui.test.stepDefs;
 import api.dto.UserData;
 import api.service.UserRestClientService;
 import config.ConfigProvider;
+import db.repository.UserRepository;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.testng.Assert;
 import pages.RegisterPage;
@@ -20,6 +23,9 @@ public class RegisterPageTests extends BaseTest {
     private WebClient webClient = WebClient.create(ConfigProvider.REST_URL);
 
     UserRestClientService userRestClient = new UserRestClientService(webClient);
+
+    @Autowired
+    UserRepository userRepository;
 
     @Then("all required elements are present on Register page")
     public void followingElementsArePresent() {
@@ -47,13 +53,19 @@ public class RegisterPageTests extends BaseTest {
             page.getSubscribeRadioButtonTrue().sendKeys(userData.getPassword());
         }
         page.getAcceptPrivacyPolicyCheckBox().click();
-        userRestClient.createUser(userData);
-        scenarioContext.addToStorage(USER,userData);
+        UserData user = userRestClient.createUser(userData);
+        scenarioContext.addToStorage(USER,user);
     }
 
     @When("user click on Submit button from Register page")
     public void userClickOnSubmitButtonFromRegisterPage() {
         RegisterPage registerPage = new RegisterPage();
         registerPage.getSubmitButton().click();
+    }
+
+    @Then("user is saved in DB")
+    public void userIsSavedInDB() {
+        UserData user = (UserData) scenarioContext.getFromStorage(USER);
+        userRepository.findById(user.getUserID());
     }
 }
